@@ -50,10 +50,31 @@ The lexer supports a simple programming language with the following tokens:
 
 ## Prerequisites
 
-- [Zig](https://ziglang.org/download/) (version 0.13.0 or later)
+- [Zig](https://ziglang.org/download/) (version 0.13.0 or later recommended)
 - A web server for serving static files (e.g., Python's http.server, Node's http-server, etc.)
 
-## Building
+## Quick Start
+
+### Installing Zig
+
+**Linux x86_64:**
+```bash
+cd /tmp
+curl -L "https://ziglang.org/builds/zig-x86_64-linux-0.16.0-dev.747+493ad58ff.tar.xz" -o zig.tar.xz
+tar -xf zig.tar.xz
+sudo mv zig-x86_64-linux-* /usr/local/zig
+export PATH=$PATH:/usr/local/zig
+```
+
+**macOS:**
+```bash
+brew install zig
+```
+
+**Windows:**
+Download from [ziglang.org/download](https://ziglang.org/download/) and add to PATH.
+
+### Building the Project
 
 1. Clone the repository:
 ```bash
@@ -61,17 +82,18 @@ git clone <repository-url>
 cd Lang-tryout
 ```
 
-2. Build the WASM module:
+2. Use the build script (easiest):
+```bash
+./build.sh
+```
+
+Or build manually:
 ```bash
 zig build
-```
-
-This will create the WASM binary at `zig-out/bin/lexer.wasm`.
-
-3. Copy the WASM file to the public directory:
-```bash
 cp zig-out/bin/lexer.wasm public/
 ```
+
+This creates the WASM binary at `zig-out/bin/lexer.wasm` and copies it to `public/`.
 
 ## Running
 
