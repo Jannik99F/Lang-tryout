@@ -1,0 +1,8 @@
+let x = 42;
+let y = 3.14;
+
+if (x > 10) {
+    return true;
+} else {
+    return false;
+}

@@ -1,0 +1,19 @@
+fn fibonacci(n) {
+    let a = 0;
+    let b = 1;
+
+    for (i = 0; i < n; i = i + 1) {
+        let temp = a;
+        a = b;
+        b = temp + b;
+    }
+
+    return a;
+}
+
+while (true) {
+    if (x >= 100) {
+        return x;
+    }
+    x = x + 1;
+}

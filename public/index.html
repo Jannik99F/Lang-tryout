@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zig Lexer - WebAssembly</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zig Lexer Demo</h1>
+            <p class="subtitle">A simple lexer compiled to WebAssembly</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="section-header">
+                    <h2>Source Code</h2>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+                <textarea
+                    id="sourceInput"
+                    placeholder="Enter your code here...&#10;&#10;Example:&#10;let x = 42;&#10;if (x > 10) {&#10;    return true;&#10;}"
+                    spellcheck="false"
+                ></textarea>
+                <button id="tokenizeBtn" class="btn btn-primary">Tokenize</button>
+            </section>
+
+            <section class="output-section">
+                <div class="section-header">
+                    <h2>Tokens</h2>
+                    <span id="tokenCount" class="token-count">0 tokens</span>
+                </div>
+                <div id="tokensOutput" class="tokens-output">
+                    <p class="placeholder">Tokens will appear here after tokenization</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3>Supported Syntax</h3>
+                <div class="syntax-grid">
+                    <div class="syntax-item">
+                        <h4>Keywords</h4>
+                        <code>if, else, while, for, fn, let, return, true, false</code>
+                    </div>
+                    <div class="syntax-item">
+                        <h4>Operators</h4>
+                        <code>+, -, *, /, =, ==, !=, &lt;, &gt;, &lt;=, &gt;=</code>
+                    </div>
+                    <div class="syntax-item">
+                        <h4>Delimiters</h4>
+                        <code>( ) { } ; ,</code>
+                    </div>
+                    <div class="syntax-item">
+                        <h4>Literals</h4>
+                        <code>numbers, identifiers</code>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with Zig and WebAssembly</p>
+        </footer>
+    </div>
+
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Loading WASM module...</p>
+    </div>
+
+    <script src="lexer.js"></script>
+</body>
+</html>
